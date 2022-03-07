@@ -29,11 +29,15 @@ public class Produto {
 	private Long quantidade;
 	
 	@NotBlank(message = "O atributo data é obrigatório")
-	private String dataLanc;
+	private String lancamento;
 	
 	@ManyToOne
 	@JsonIgnoreProperties("produto")
 	private Categoria categoria;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("produto")
+	private Usuario usuario;
 
 	//Getters & Setters
 	
@@ -69,12 +73,12 @@ public class Produto {
 		this.quantidade = quantidade;
 	}
 
-	public String getData() {
-		return dataLanc;
+	public String getLancamento() {
+		return lancamento;
 	}
 
-	public void setData(String data) {
-		this.dataLanc = data;
+	public void setLancamento(String lancamento) {
+		this.lancamento = lancamento;
 	}
 
 	public Categoria getCategoria() {
@@ -83,6 +87,14 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	
